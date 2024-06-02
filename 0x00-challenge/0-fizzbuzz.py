@@ -35,5 +35,12 @@ if __name__ == '__main__':
         print("Example: ./0-fizzbuzz.py 89")
         sys.exit(1)
 
-    number = int(sys.argv[1])
+    try:
+        number = int(sys.argv[1])
+        if number < 1:
+            raise ValueError("Number must be greater than 0")
+    except ValueError as e:
+        print(f"Invalid number: {e}")
+        sys.exit(1)
+
     fizzbuzz(number)
